@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-public abstract class BaseControllerImpl<E extends Base, S extends crudImpl<E, Long>> implements BaseController<E,Long> {
+abstract public class BaseControllerImpl<E extends Base, S extends crudImpl<E, Long>> implements BaseController<E,Long> {
     @Autowired
     protected S service;
 
     @Override
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<?> getAll() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
@@ -46,7 +46,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends crudImpl<E, L
     }
 
     @Override
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> save(@RequestBody E entity) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(service.save(entity));

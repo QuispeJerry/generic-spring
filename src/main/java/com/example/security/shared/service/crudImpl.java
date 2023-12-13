@@ -11,8 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public abstract class crudImpl<T extends Base, ID extends Serializable> implements crud<T, ID> {
+abstract public class crudImpl<T extends Base, ID extends Serializable> implements crud<T, ID> {
 //    @Autowired
 //    private JpaRepository<T, Integer> repository;
 
@@ -24,7 +23,6 @@ public abstract class crudImpl<T extends Base, ID extends Serializable> implemen
     }
 
     @Transactional(readOnly = true)
-    @Override
     public List<T> getAll() {
         return baseRepository.findAll();
     }
@@ -36,7 +34,6 @@ public abstract class crudImpl<T extends Base, ID extends Serializable> implemen
 //    }
 
     @Transactional(readOnly = true)
-    @Override
     public Optional<T> getById(ID id) throws Exception {
         try{
             return baseRepository.findById(id);
@@ -52,19 +49,16 @@ public abstract class crudImpl<T extends Base, ID extends Serializable> implemen
     }
 
     @Transactional
-    @Override
     public T save(T entity) {
         return baseRepository.save(entity);
     }
 
     @Transactional
-    @Override
     public T update(T entity, ID id) {
         return baseRepository.save(entity);
     }
 
     @Transactional
-    @Override
     public boolean deleteById(ID id) {
         if (baseRepository.existsById(id)){
             baseRepository.deleteById(id);
