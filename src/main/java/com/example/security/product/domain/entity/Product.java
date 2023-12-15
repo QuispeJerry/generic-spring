@@ -7,16 +7,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//error inicio
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+//error fin
 @Entity
 @Table(name = "products")
-public class Product {
-    @Id
+public class Product extends Base{
+/*    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;*/
 
     @Column(name = "name")
     private String name;

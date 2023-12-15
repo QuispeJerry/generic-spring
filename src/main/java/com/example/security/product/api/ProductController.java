@@ -2,6 +2,7 @@ package com.example.security.product.api;
 
 import com.example.security.product.domain.entity.Product;
 import com.example.security.product.service.ProductServiceImpl;
+import com.example.security.shared.api.BaseControllerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,8 @@ public class ProductController extends BaseControllerImpl<Product, ProductServic
 @RestController
 @CrossOrigin("*")
 @RequestMapping(path = "products")
-public class ProductController{
-    @Autowired
+public class ProductController extends BaseControllerImpl<Product, ProductServiceImpl> {
+    /*@Autowired
     private ProductServiceImpl productService;
 
     @PostMapping
@@ -31,10 +32,10 @@ public class ProductController{
     @GetMapping
     public List<Product> getAll() {return productService.getAll();}
 
-    /*@GetMapping("{id}")
+    @GetMapping("{id}")
     public Product getById(@PathVariable Long id) {
         return productService.getById(id).get();
-    }*/
+    }
 
     @PutMapping("{id}")
     public ResponseEntity<Product> update (@PathVariable Long id, @RequestBody Product product){
@@ -53,5 +54,5 @@ public class ProductController{
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 }
