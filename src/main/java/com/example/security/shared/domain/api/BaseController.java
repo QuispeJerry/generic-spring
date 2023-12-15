@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
-public interface BaseController <E extends Base, ID extends Serializable> {
+public interface BaseController <E, ID extends Serializable> {
     public ResponseEntity<?> getAll();
     public ResponseEntity<?> getOne(@PathVariable ID id);
     public ResponseEntity<?> save(@RequestBody E entity);

@@ -5,6 +5,7 @@ import com.example.security.product.domain.persistence.ProductRepository;
 import com.example.security.shared.domain.persistence.BaseRepository;
 import com.example.security.shared.service.crudImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,4 +16,9 @@ public class ProductServiceImpl extends crudImpl<Product, Long> {
     public ProductServiceImpl(BaseRepository<Product, Long> baseRepository){
         super(baseRepository);
     }
+
+    /*@Override
+    protected JpaRepository<Product,Long> getRepository(){
+        return productRepository;
+    }*/
 }
